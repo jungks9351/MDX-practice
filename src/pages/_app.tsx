@@ -1,11 +1,15 @@
 import type { AppProps } from 'next/app'
-import GlobalStyle from '../styles/GlobalStyle'
-import '../../public/static/font/index.css'
 import Head from 'next/head'
+import styled, { ThemeProvider } from 'styled-components'
+
+import '../../public/static/font/index.css'
+import Header from '../components/Header'
+import GlobalStyle from '../styles/GlobalStyle'
+import theme from '../styles/theme'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Head>
         <meta charSet="utf-8" />
         <meta
@@ -17,9 +21,20 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <title>Blog</title>
       </Head>
       <GlobalStyle />
-      <Component {...pageProps} />
-    </>
+      <Container>
+        <Header />
+        <Component {...pageProps} />
+      </Container>
+    </ThemeProvider>
   )
 }
 
+const Container = styled.div`
+  width: calc(100%-2rem);
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  background-color: ${({ theme }) => theme.colors.bgColors.main};
+`
 export default MyApp
