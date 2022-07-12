@@ -48,7 +48,6 @@ export default class MyDocument extends Document {
           />
           <meta name="description" content="My First Static Blog" />
           <meta name="keywords" content="nextjs,static,website" />
-          <title>Blog</title>
         </Head>
         <body>
           <Main />

@@ -1,9 +1,11 @@
-import React from 'react'
-import NavLinks from '../components/nav/NavLinks'
+import Head from 'next/head'
 
 const about = () => {
   return (
     <>
+      <Head>
+        <title>Blog About</title>
+      </Head>
       <h1>About page</h1>
     </>
   )
