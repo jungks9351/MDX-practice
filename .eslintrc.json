@@ -5,21 +5,12 @@
     "commonjs": true,
     "es6": true
   },
-  "extends": [
-    "next",
-    "prettier",
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "extends": ["next", "prettier"],
   "rules": {
     "no-console": 1,
     "camelcase": "off",
     "prettier/prettier": "off",
-    "no-unused-vars": "warn",
+    "no-unused-vars": 1,
     "no-plusplus": "off",
     "no-shadow": "off",
     "react/prop-types": "off",
