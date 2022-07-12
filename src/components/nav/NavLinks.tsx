@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
+
 import navlinks from '../../data/navlinks'
 
 const NavLinks = () => {
@@ -22,15 +23,12 @@ const NavLinks = () => {
 const NavButton = styled.button<{ isActive: boolean }>`
   padding: 1rem 2rem 1rem 0;
 
-  color: ${({ theme, isActive }) =>
-    isActive
-      ? theme.colors.fontColors.black
-      : theme.colors.fontColors.darkGray};
+  color: ${({ theme, isActive }) => (isActive ? theme.fontColor : 'darkGray')};
   font-size: 1.8rem;
   letter-spacing: 0.3rem;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.fontColors.black};
+    color: ${({ theme }) => theme.fontColor};
   }
 `
 

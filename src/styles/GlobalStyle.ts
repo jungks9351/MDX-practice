@@ -11,8 +11,10 @@ html {
 body {
   font-family: 'Jalnan';
   padding: 0 20rem;
-  background-color: ${({ theme }) => theme.colors.bgColors.body}
+  background-color: ${({ theme }) => theme.bgColors.body};
+  color: ${({ theme }) => theme.fontColor};
 }
+
 button {
   all : unset;
   cursor: pointer;

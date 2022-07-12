@@ -1,15 +1,37 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
 import '../../public/static/font/index.css'
+import SunIcon from '../../public/static/images/sun_icon.svg'
+import MoonIcon from '../../public/static/images/moon_icon.svg'
+
 import Header from '../components/Header'
+import NavContainer from '../components/nav/NavContainer'
+
+import { darkTheme, lightTheme } from '../styles/theme'
 import GlobalStyle from '../styles/GlobalStyle'
-import theme from '../styles/theme'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const [themeMode, setThemeMode] = useState('')
+
+  const handleThemeMode = () => {
+    setThemeMode(themeMode === 'light' ? 'dark' : 'light')
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem('theme'))
+      setThemeMode(localStorage.getItem('theme'))
+  }, [])
+
+  useEffect(() => {
+    document.body.dataset.theme = themeMode
+    localStorage.setItem('theme', themeMode)
+  }, [themeMode])
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>
       <Head>
         <meta charSet="utf-8" />
         <meta
@@ -22,7 +44,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       </Head>
       <GlobalStyle />
       <Container>
-        <Header />
+        <Header>
+          <NavContainer />
+          <button onClick={handleThemeMode}>
+            {themeMode === 'light' ? <SunIcon /> : <MoonIcon />}
+          </button>
+        </Header>
         <Component {...pageProps} />
       </Container>
     </ThemeProvider>
@@ -35,6 +62,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 0 2rem;
 
-  background-color: ${({ theme }) => theme.colors.bgColors.main};
+  background-color: ${({ theme }) => theme.bgColors.main};
 `
+
 export default MyApp
