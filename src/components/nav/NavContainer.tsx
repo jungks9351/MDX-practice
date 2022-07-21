@@ -1,9 +1,13 @@
 import React from 'react'
 
-import NavLinks from './NavLinks'
+import NavList from '@components/nav/NavList'
 
 const NavContainer = () => {
-  return <NavLinks />
+  return (
+    <nav>
+      <NavList />
+    </nav>
+  )
 }
 
 export default NavContainer
