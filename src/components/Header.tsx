@@ -31,6 +31,7 @@ const HeaderWrapper = styled.header`
 `
 const HeaderLogo = styled.h1`
   font-size: 2.2rem;
+  cursor: default;
 `
 
 const DivideWrapper = styled.div`

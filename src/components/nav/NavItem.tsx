@@ -8,27 +8,35 @@ const NavItem = ({ navLink }: { navLink: NavLinkType }) => {
   const router = useRouter()
 
   return (
-    <NavItemWrapper isActive={navLink.link === router.pathname ? true : false}>
+    <NavItemWrapper>
       <Link href={navLink.link}>
-        <h4 className="navLink-title">{navLink.title}</h4>
+        <NavLinkTitle
+          className="navLink-title"
+          isActive={navLink.link === router.pathname ? true : false}
+        >
+          {navLink.title}
+        </NavLinkTitle>
       </Link>
     </NavItemWrapper>
   )
 }
 
-const NavItemWrapper = styled.li<{ isActive: boolean }>`
+const NavItemWrapper = styled.li`
   padding: 1rem 2rem 1rem 0;
 
   .navLink-title {
-    color: ${({ theme, isActive }) =>
-      isActive ? theme.fontColor : 'darkGray'};
-    font-size: 1.2rem;
-    letter-spacing: 0.3rem;
-
-    &:hover {
-      color: ${({ theme }) => theme.fontColor};
-    }
   }
+`
+
+const NavLinkTitle = styled.h4<{ isActive: boolean }>`
+  color: ${({ theme, isActive }) => (isActive ? theme.fontColor : 'darkGray')};
+  font-size: 1.2rem;
+  letter-spacing: 0.3rem;
+
+  &:hover {
+    color: ${({ theme }) => theme.fontColor};
+  }
+  cursor: pointer;
 `
 
 export default NavItem
