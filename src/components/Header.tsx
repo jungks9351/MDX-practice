@@ -10,7 +10,7 @@ const Header = ({ themeMode, handleThemeMode }) => {
   return (
     <HeaderWrapper>
       <DivideWrapper>
-        <HeaderLogo>JJ</HeaderLogo>
+        <HeaderLogo>JungJin</HeaderLogo>
         <div>
           <button onClick={handleThemeMode}>
             {themeMode === 'light' ? <StyledSunIcon /> : <StyledMoonIcon />}
