@@ -5,24 +5,23 @@ import { allPosts, type Post } from 'contentlayer/generated'
 import PostContainer from '@components/posts/PostContainer'
 
 export const getStaticProps = async () => {
-  const posts: Post[] = allPosts.sort((a, b) => {
-    return compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
-  })
+  const posts: Post[] = allPosts
+    .sort((a, b) => {
+      return compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
+    })
+    .slice(0, 5)
   return { props: { posts } }
 }
 
-const Home = ({ posts }: { posts: Post[] }) => {
+const HomePage = ({ posts }: { posts: Post[] }) => {
   return (
     <>
       <Head>
         <title>Home</title>
       </Head>
-      <h3>Recent Post</h3>
-      <div>
-        <PostContainer posts={posts} />
-      </div>
+      <PostContainer posts={posts} />
     </>
   )
 }
 
-export default Home
+export default HomePage

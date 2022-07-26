@@ -7,5 +7,8 @@ declare module 'styled-components' {
       main: string
     }
     fontColor: string
+    border: {
+      color: string
+    }
   }
 }

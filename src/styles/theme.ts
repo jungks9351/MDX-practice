@@ -2,10 +2,13 @@ import { DefaultTheme } from 'styled-components'
 
 export const lightTheme: DefaultTheme = {
   bgColors: {
-    body: '#f9f9ff',
+    body: '#ffffff',
     main: '#ffffff',
   },
   fontColor: '#000000',
+  border: {
+    color: '#ecedf1',
+  },
 }
 
 export const darkTheme: DefaultTheme = {
@@ -14,4 +17,7 @@ export const darkTheme: DefaultTheme = {
     main: '#000000',
   },
   fontColor: '#ffffff',
+  border: {
+    color: '#ffffff',
+  },
 }

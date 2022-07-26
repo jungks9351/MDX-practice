@@ -11,7 +11,7 @@ const Continer = ({ children }: CotinerProps) => {
 
 const ContainerWrapper = styled.div`
   height: 100vh;
-
+  padding: 0 2rem;
   background-color: ${({ theme }) => theme.bgColors.main};
 `
 
