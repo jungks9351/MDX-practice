@@ -71,11 +71,11 @@ const StyledMoonIcon = styled(MoonIcon)`
 `
 
 const StyledMenuIcon = styled(MenuIcon)`
-  font-size: 2rem;
+  font-size: 3.2rem;
 `
 
 const StyledCloseIcon = styled(CloseIcon)`
-  font-size: 2rem;
+  font-size: 3.2rem;
 `
 
 export default Header
