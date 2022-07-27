@@ -4,6 +4,7 @@ interface PostDetailProps {
   title: string
   description: string
   publishedAt: string
+  tags: string[]
   children: JSX.Element | JSX.Element[]
 }
 

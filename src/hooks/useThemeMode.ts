@@ -14,7 +14,6 @@ const useThemeMode = () => {
   }, [])
 
   useEffect(() => {
-    document.body.dataset.theme = themeMode
     localStorage.setItem('theme', themeMode)
   }, [themeMode])
 

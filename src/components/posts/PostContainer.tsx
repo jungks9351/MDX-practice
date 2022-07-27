@@ -29,9 +29,12 @@ const PostContainer = ({ posts }: { posts?: Post[] }) => {
 const PostContainerWrapper = styled.section`
   padding: 3rem 0;
   .post-container-title {
-    font-size: 2.2rem;
+    font-size: 3rem;
     font-weight: 600;
     padding-bottom: 2rem;
+    @media (min-width: 640px) {
+      font-size: 3.6rem;
+    }
   }
 `
 const ButtonWrapper = styled.div`
