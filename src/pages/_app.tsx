@@ -6,8 +6,8 @@ import '#static/font/index.css'
 import { darkTheme, lightTheme } from '@styles/theme'
 import GlobalStyle from '@styles/GlobalStyle'
 
-import Header from '@components/Header'
-import Container from '@components/Container'
+import Header from '@components/common/Header'
+import Container from '@components/common/Container'
 
 import useThemeMode from '@hooks/useThemeMode'
 

@@ -122,6 +122,17 @@ const MDXContent = styled.div`
     list-style-type: decimal;
     margin: 1.6rem;
   }
+  blockquote {
+    margin: 2rem 0px;
+    border-left: 4px solid #1340c1;
+    border-bottom-right-radius: 4px;
+    background: #282a36;
+    padding: 1rem 1rem 1rem 2rem;
+    color: var(--text1);
+    p {
+      margin: 0;
+    }
+  }
 `
 
 export default PostDetail

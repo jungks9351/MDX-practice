@@ -3,7 +3,7 @@ import { compareDesc } from 'date-fns'
 import { allPosts, type Post } from 'contentlayer/generated'
 
 import PostContainer from '@components/posts/PostContainer'
-import Pagination from '@components/Pagination'
+import Pagination from '@components/common/Pagination'
 import usePagination from '@hooks/usePagination'
 
 export const getStaticProps = async () => {

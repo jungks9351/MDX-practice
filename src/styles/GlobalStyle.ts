@@ -30,6 +30,24 @@ button {
   all : unset;
   cursor: pointer;
 }
+
+@keyframes openSlideMenu {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeSlideMenu {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
 `
 
 export default GlobalStyle

@@ -15,7 +15,7 @@ const NavList = () => {
 
 const NavListWrapper = styled.ul`
   display: flex;
-  align-items: center;
+  flex-direction: column;
 `
 
 export default NavList

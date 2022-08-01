@@ -12,6 +12,7 @@ const Container = ({ children }: CotinerProps) => {
 const ContainerWrapper = styled.div`
   height: 100vh;
   padding: 0 1.6rem;
+  margin: 0 auto;
   @media (min-width: 640px) {
     padding: 0 2.4rem;
   }

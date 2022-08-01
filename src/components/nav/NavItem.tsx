@@ -8,35 +8,37 @@ const NavItem = ({ navLink }: { navLink: NavLinkType }) => {
   const router = useRouter()
 
   return (
-    <NavItemWrapper>
-      <Link href={navLink.link}>
+    <Link href={navLink.link}>
+      <NavItemWrapper>
         <NavLinkTitle
           className="navLink-title"
           isActive={navLink.link === router.pathname ? true : false}
         >
           {navLink.title}
         </NavLinkTitle>
-      </Link>
-    </NavItemWrapper>
+      </NavItemWrapper>
+    </Link>
   )
 }
 
 const NavItemWrapper = styled.li`
-  padding: 1rem 2rem 1rem 0;
-
-  .navLink-title {
+  padding: 1rem 0 1rem 1.6rem;
+  border-bottom: 0.5px solid #a9adc1;
+  color: ${({ theme }) => theme.fontColor.primary};
+  cursor: pointer;
+  :first-child {
+    border-top: 0.5px solid #a9adc1;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.fontColor.text2};
+    background-color: #ffffff;
   }
 `
 
 const NavLinkTitle = styled.h4<{ isActive: boolean }>`
-  color: ${({ theme, isActive }) => (isActive ? theme.fontColor : 'darkGray')};
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.8rem;
   letter-spacing: 0.3rem;
-
-  &:hover {
-    color: ${({ theme }) => theme.fontColor};
-  }
-  cursor: pointer;
 `
 
 export default NavItem

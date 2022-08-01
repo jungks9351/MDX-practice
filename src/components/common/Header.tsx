@@ -8,11 +8,14 @@ import CloseIcon from '#static/images/close_icon.svg'
 
 import NavContainer from '@components/nav/NavContainer'
 import Link from 'next/link'
+import Modal from './Modal'
 
 const Header = ({ themeMode, handleThemeMode }) => {
+  const [open, setOpen] = useState(false)
   const [menuVisible, setMenuVisible] = useState(false)
 
   const toggleMenuVisible = () => {
+    setOpen(!open)
     setMenuVisible(!menuVisible)
   }
 
@@ -31,17 +34,17 @@ const Header = ({ themeMode, handleThemeMode }) => {
           </button>
         </ButtonWrapper>
       </DivideWrapper>
-      {menuVisible && (
-        <DivideWrapper>
-          <NavContainer />
-        </DivideWrapper>
-      )}
+
+      <Modal open={menuVisible}>
+        <NavContainer menuVisilbe={menuVisible} />
+      </Modal>
     </HeaderWrapper>
   )
 }
 
 const HeaderWrapper = styled.header`
   background-color: ${({ theme }) => theme.bgColors.main};
+  height: 50px;
 `
 const HeaderLogo = styled.h1`
   font-size: 2.4rem;
