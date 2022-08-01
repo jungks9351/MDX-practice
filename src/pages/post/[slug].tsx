@@ -34,6 +34,10 @@ const PostDetailContainer = ({ post }: PostProps) => {
     <>
       <Head>
         <title>{post.title}</title>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.css"
+        ></link>
       </Head>
       <PostDetail {...post}>
         <MDXContent />

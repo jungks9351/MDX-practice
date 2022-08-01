@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import remarkPrism from 'remark-prism'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -39,7 +40,7 @@ export default makeSource({
   contentDirPath: 'src/data',
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [],
+    remarkPlugins: [remarkPrism],
     rehypePlugins: [],
   },
 })

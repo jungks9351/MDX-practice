@@ -9,6 +9,10 @@ html {
   scroll-behavior: smooth;
 }
 
+*{
+  transition: background-color 1s;
+}
+
 body {
   font-family: InterVariable,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
   background-color: ${({ theme }) => theme.bgColors.body};
