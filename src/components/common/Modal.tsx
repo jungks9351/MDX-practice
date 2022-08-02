@@ -1,16 +1,15 @@
 import ReactDOM from 'react-dom'
-
 import { useEffect } from 'react'
+import styled from 'styled-components'
 
 import useMount from '@hooks/useMount'
-import styled from 'styled-components'
 
 interface ModalProps {
   children: JSX.Element | JSX.Element[]
-  open: boolean
+  openModal: boolean
 }
 
-const Modal = ({ children, open }: ModalProps) => {
+const Modal = ({ children, openModal }: ModalProps) => {
   const isMount = useMount()
 
   useEffect(() => {
@@ -25,11 +24,14 @@ const Modal = ({ children, open }: ModalProps) => {
       window.scrollTo(0, parseInt(scrollY || '0', 10) * -1)
     }
   }, [])
+
   return (
     <>
       {isMount
         ? ReactDOM.createPortal(
-            <ModalOverlay open={open}>{children}</ModalOverlay>,
+            <div id="modal-root">
+              <ModalOverlay openModal={openModal}>{children}</ModalOverlay>
+            </div>,
             document.getElementById('__next'),
           )
         : null}
@@ -37,8 +39,8 @@ const Modal = ({ children, open }: ModalProps) => {
   )
 }
 
-const ModalOverlay = styled.div<{ open: boolean }>`
-  transition: display 1s;
+const ModalOverlay = styled.div<{ openModal: boolean }>`
+  display: ${({ openModal }) => (openModal ? 'block' : 'none')};
   position: fixed;
   top: 5rem;
   left: 0;

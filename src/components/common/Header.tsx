@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 
 import SunIcon from '#static/images/sun_icon.svg'
@@ -11,32 +11,34 @@ import Link from 'next/link'
 import Modal from './Modal'
 
 const Header = ({ themeMode, handleThemeMode }) => {
-  const [open, setOpen] = useState(false)
-  const [menuVisible, setMenuVisible] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
+  const [animation, setAnimation] = useState(false)
 
-  const toggleMenuVisible = () => {
-    setOpen(!open)
-    setMenuVisible(!menuVisible)
+  const toggleOpenModal = () => {
+    setAnimation(!animation)
+    setTimeout(() => {
+      setOpenModal(!openModal)
+    }, 1000)
   }
 
   return (
     <HeaderWrapper>
       <DivideWrapper>
         <Link href={'/'}>
-          <HeaderLogo>JungJin</HeaderLogo>
+          <HeaderLogo>Stormtrooper</HeaderLogo>
         </Link>
         <ButtonWrapper>
           <button onClick={handleThemeMode}>
             {themeMode === 'light' ? <StyledSunIcon /> : <StyledMoonIcon />}
           </button>
-          <button onClick={toggleMenuVisible}>
-            {!menuVisible ? <StyledMenuIcon /> : <StyledCloseIcon />}
+          <button onClick={toggleOpenModal}>
+            {!openModal ? <StyledMenuIcon /> : <StyledCloseIcon />}
           </button>
         </ButtonWrapper>
       </DivideWrapper>
 
-      <Modal open={menuVisible}>
-        <NavContainer menuVisilbe={menuVisible} />
+      <Modal openModal={openModal}>
+        <NavContainer animation={animation} />
       </Modal>
     </HeaderWrapper>
   )

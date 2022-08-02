@@ -1,28 +1,22 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import NavList from '@components/nav/NavList'
+import { slideOut, slideIn } from '@styles/animations'
 
-const NavContainer = ({ menuVisilbe }: { menuVisilbe: boolean }) => {
+const NavContainer = ({ animation }: { animation: boolean }) => {
   return (
-    <NavContainerWrapper menuVisilbe={menuVisilbe}>
+    <NavContainerWrapper animation={animation}>
       <NavList />
     </NavContainerWrapper>
   )
 }
-const NavContainerWrapper = styled.nav<{ menuVisilbe: boolean }>`
+const NavContainerWrapper = styled.nav<{ animation: boolean }>`
   width: 100%;
   height: 100%;
 
   background-color: ${({ theme }) => theme.bgColors.main};
-  ${({ menuVisilbe }) =>
-    menuVisilbe
-      ? css`
-          animation: openSlideMenu 1s forwards;
-        `
-      : css`
-          animation: closeSlideMenu 1s forwards;
-        `}
+  animation: ${({ animation }) => (animation ? slideOut : slideIn)} 700ms;
+  animation-fill-mode: forwards;
 `
 
 export default NavContainer
