@@ -4,12 +4,17 @@ import styled from 'styled-components'
 
 import { NavLinkType } from '@data/navLinks'
 
-const NavItem = ({ navLink }: { navLink: NavLinkType }) => {
+interface NavItemProps {
+  navLink: NavLinkType
+  toggleOpenModal: () => void
+}
+
+const NavItem = ({ navLink, toggleOpenModal }: NavItemProps) => {
   const router = useRouter()
 
   return (
     <Link href={navLink.link}>
-      <NavItemWrapper>
+      <NavItemWrapper onClick={toggleOpenModal}>
         <NavLinkTitle
           className="navLink-title"
           isActive={navLink.link === router.pathname ? true : false}

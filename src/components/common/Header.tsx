@@ -38,7 +38,7 @@ const Header = ({ themeMode, handleThemeMode }) => {
       </DivideWrapper>
 
       <Modal openModal={openModal}>
-        <NavContainer animation={animation} />
+        <NavContainer animation={animation} toggleOpenModal={toggleOpenModal} />
       </Modal>
     </HeaderWrapper>
   )

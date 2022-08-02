@@ -3,10 +3,15 @@ import styled from 'styled-components'
 import NavList from '@components/nav/NavList'
 import { slideOut, slideIn } from '@styles/animations'
 
-const NavContainer = ({ animation }: { animation: boolean }) => {
+interface NavContainerProps {
+  animation: boolean
+  toggleOpenModal: () => void
+}
+
+const NavContainer = ({ animation, toggleOpenModal }: NavContainerProps) => {
   return (
     <NavContainerWrapper animation={animation}>
-      <NavList />
+      <NavList toggleOpenModal={toggleOpenModal} />
     </NavContainerWrapper>
   )
 }
