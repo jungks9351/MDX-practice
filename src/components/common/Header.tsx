@@ -18,7 +18,7 @@ const Header = ({ themeMode, handleThemeMode }) => {
     setAnimation(!animation)
     setTimeout(() => {
       setOpenModal(!openModal)
-    }, 1000)
+    }, 700)
   }
 
   return (
