@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Image from 'next/image'
 
 import myImage from '#static/images/my_image.jpeg'
+import Container from '@components/common/Container'
 
 const about = () => {
   return (
@@ -10,8 +11,9 @@ const about = () => {
       <Head>
         <title>Blog About</title>
       </Head>
-      <Title>About</Title>
+
       <MyInfo>
+        <Title>About</Title>
         <MyImageWrapper>
           <StyledImage src={myImage} alt="my_image" width={300} height={300} />
         </MyImageWrapper>
@@ -36,7 +38,8 @@ const about = () => {
 }
 
 const Title = styled.h2`
-  font-size: 5rem;
+  padding-top: 3rem;
+  font-size: 3rem;
   font-weight: 600;
 `
 
